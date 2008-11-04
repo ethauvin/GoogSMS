@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="main_type_array">
+		<item>Search</item>
+		<item>Web Snippets</item>
+		<item>Local Search</item>
+		<item>Local Movies</item>
+		<item>Local Weather</item>
+		<item>Airports</item>
+		<item>Area Codes</item>
+		<item>Calculator</item>
+		<item>Currency Conversion</item>
+		<item>Directions</item>
+		<item>Flights</item>
+		<item>Glossary</item>
+		<item>METAR</item>
+		<item>Maps</item>
+		<item>Movies</item>
+		<item>Products</item>
+		<item>Q&amp;A</item>
+		<item>Sports</item>
+		<item>Stocks</item>
+		<item>Translation</item>
+		<item>Weather</item>
+		<item>Zip Codes</item>
+	</string-array>
+	
+	<string-array name="main_cmd_array">
+		<item>%s</item>
+		<item>web %s</item>
+		<item>%s %l</item>
+		<item>movies %%s %l</item>
+		<item>weather %l</item>
+		<item>%s airport</item>
+		<item>area code %s</item>
+		<item>%s</item>
+		<item>%s</item>
+		<item>directions %s</item>
+		<item>flight %s</item>
+		<item>define %s</item>
+		<item>metar %s</item>
+		<item>map %s</item>
+		<item>movies %s</item>
+		<item>price %s</item>
+		<item>%s</item>
+		<item>score %s</item>
+		<item>stock %s</item>
+		<item>translate %s</item>
+		<item>weather %s</item>
+		<item>zip code %s</item>
+	</string-array>
+	
+	<string-array name="main_hint_array">
+		<item>blockbuster seattle wa</item>
+		<item>search terms, e.g.: t-mobile g1</item>
+		<item>business listing, sushi, pizza, etc.</item>
+		<item>No query or current movie name</item>
+		<item>No query required</item>
+		<item>airport code, e.g.: sfo</item>
+		<item>area code, e.g.: 650</item>
+		<item>1 us pint in liters, 5+2/2, etc.</item>
+		<item>8 usd in yen</item>
+		<item>pasadena ca to 94043</item>
+		<item>aa 2111, ua 14, etc.</item>
+		<item>word to define, e.g.: zenith</item>
+		<item>ICAO airport code, e.g.: khio</item>
+		<item>5th avenue new york</item>
+		<item>current movie name boston, ma</item>
+		<item>ipod 40gb, UPC/ISBN, etc.</item>
+		<item>india population</item>
+		<item>NBA/NHL/MLB/NFL/NCAA team</item>
+		<item>ticker symbol, e.g.: goog</item>
+		<item>hello in french</item>
+		<item>new york, ny</item>
+		<item>90210</item>
+	</string-array>
+</resources>
