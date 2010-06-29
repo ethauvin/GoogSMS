@@ -9,7 +9,7 @@
 	<string name="main_query_err_txt">Please enter a query...</string>
 	<string name="main_location_err_txt">Please set your location...</string>
 	<string name="default_google_sms">466453</string>
-	<string name="about_txt">© 2008 Erik C. Thauvin\nAll Rights Reserved\n\nerik@thauvin.net\n\nhttp://mobile.thauvin.net</string>
+	<string name="about_txt">© 2008-10 Erik C. Thauvin\nAll Rights Reserved\n\nerik@thauvin.net\n\nhttp://mobile.thauvin.net/</string>
 	<string name="about_menu_txt">About</string>
 	<string name="prefs_menu_txt">Preferences</string>
 	<string name="alert_dialog_ok">OK</string>

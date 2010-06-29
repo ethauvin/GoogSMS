@@ -1,7 +1,7 @@
 /*
  * @(#)GoogSMS.java
  *
- * Copyright (c) 2008, Erik C. Thauvin (http://erik.thauvin.net/)
+ * Copyright (c) 2008-2010, Erik C. Thauvin (http://erik.thauvin.net/)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,7 +50,6 @@ import android.os.Bundle;
 import android.telephony.gsm.SmsManager;
 import android.text.ClipboardManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -70,8 +69,11 @@ import android.widget.Toast;
  * @created Nov 2, 2008
  * @since 1.0
  */
+@SuppressWarnings("deprecation")
 public class GoogSMS extends Activity
 {
+	private static final boolean DEBUG = false;
+	
 	private static final int MAX_HISTORY_SIZE = 15;
 	private static final int MENU_ABOUT = 0;
 	private static final int MENU_PREFS = 1;
@@ -257,13 +259,18 @@ public class GoogSMS extends Activity
 
 					final SmsManager sms = SmsManager.getDefault();
 					sms.sendTextMessage(getSmsNumber(), null, s2, null, null);
-					
+
 					addHistory(query);
 					setAutoComplete(queryFld);
 
-					Toast.makeText(GoogSMS.this, R.string.main_sms_sent_txt, Toast.LENGTH_SHORT).show();
-
-					Log.v("SMS SENT: ", s2);
+					if (DEBUG)
+					{
+						Toast.makeText(GoogSMS.this, s2, Toast.LENGTH_LONG).show();
+					}
+					else
+					{
+						Toast.makeText(GoogSMS.this, R.string.main_sms_sent_txt, Toast.LENGTH_SHORT).show();
+					}
 				}
 			}
 

@@ -6,6 +6,7 @@
 		<item>Local Search</item>
 		<item>Local Movies</item>
 		<item>Local Weather</item>
+		<item>Airlines</item>
 		<item>Airports</item>
 		<item>Area Codes</item>
 		<item>Calculator</item>
@@ -20,17 +21,20 @@
 		<item>Q&amp;A</item>
 		<item>Sports</item>
 		<item>Stocks</item>
+		<item>Time</item>
 		<item>Translation</item>
 		<item>Weather</item>
 		<item>Zip Codes</item>
+		<item>Help</item>
 	</string-array>
-	
+
 	<string-array name="main_cmd_array">
 		<item>%s</item>
 		<item>web %s</item>
 		<item>%s %l</item>
 		<item>movies %%s %l</item>
 		<item>weather %l</item>
+		<item>%s</item>
 		<item>%s airport</item>
 		<item>area code %s</item>
 		<item>%s</item>
@@ -45,17 +49,20 @@
 		<item>%s</item>
 		<item>score %s</item>
 		<item>stock %s</item>
+		<item>time %s</item>
 		<item>translate %s</item>
 		<item>weather %s</item>
 		<item>zip code %s</item>
+		<item>help %s</item>
 	</string-array>
-	
+
 	<string-array name="main_hint_array">
 		<item>blockbuster seattle wa</item>
-		<item>search terms, e.g.: t-mobile g1</item>
+		<item>search terms, e.g.: nexus one</item>
 		<item>business listing, sushi, pizza, etc.</item>
 		<item>No query or current movie name</item>
 		<item>No query required</item>
+		<item>united airlines</item>
 		<item>airport code, e.g.: sfo</item>
 		<item>area code, e.g.: 650</item>
 		<item>1 us pint in liters, 5+2/2, etc.</item>
@@ -70,8 +77,10 @@
 		<item>india population</item>
 		<item>NBA/NHL/MLB/NFL/NCAA team</item>
 		<item>ticker symbol, e.g.: goog</item>
+		<item>new york, ny</item>
 		<item>hello in french</item>
 		<item>new york, ny</item>
 		<item>90210</item>
+		<item>search feature, e.g.: local, etc.</item>
 	</string-array>
 </resources>
