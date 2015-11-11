@@ -1,26 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:padding="10dip">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dip" >
 
-	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:id="@+id/main_query_lbl"
-		android:text="@string/main_query_lbl_txt" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+    <TextView
+        android:id="@+id/main_query_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_query_lbl_txt"
+        android:textAppearance="?android:attr/textAppearanceMedium" >
+    </TextView>
 
-	<AutoCompleteTextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/main_query_fld"
-		android:singleLine="true"></AutoCompleteTextView>
-	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:id="@+id/main_type_lbl"
-		android:text="@string/main_type_lbl_txt" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
-	<Spinner android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/main_type_spin"></Spinner>
+    <AutoCompleteTextView
+        android:id="@+id/main_query_fld"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true" >
+    </AutoCompleteTextView>
 
-	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:paddingTop="10dip">
-		<Button android:text="@string/main_send_btn_txt" android:id="@+id/main_send_btn"
-			android:minEms="8" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_alignParentRight="true"></Button>
-	</RelativeLayout>
+    <TextView
+        android:id="@+id/main_type_lbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_type_lbl_txt"
+        android:textAppearance="?android:attr/textAppearanceMedium" >
+    </TextView>
+
+    <Spinner
+        android:id="@+id/main_type_spin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </Spinner>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dip" >
+
+        <Button
+            android:id="@+id/main_send_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:minEms="8"
+            android:text="@string/main_send_btn_txt" >
+        </Button>
+    </RelativeLayout>
+
 </LinearLayout>

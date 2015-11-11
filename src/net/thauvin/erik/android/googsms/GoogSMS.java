@@ -31,7 +31,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * $Id$
+ * $Id: GoogSMS.java 81 2010-06-29 12:59:19Z erik $
  *
  */
 package net.thauvin.erik.android.googsms;
@@ -46,26 +46,32 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.telephony.gsm.SmsManager;
 import android.text.ClipboardManager;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
  * The <code>GoogSMS</code> class implements a simple front-end for Google SMS.
  * 
  * @author <a href="mailto:erik@thauvin.net">Erik C. Thauvin</a>
- * @version $Revision$, $Date$
+ * @version $Revision: 81 $, $Date: 2010-06-29 05:59:19 -0700 (Tue, 29 Jun 2010) $
  * @created Nov 2, 2008
  * @since 1.0
  */
@@ -73,7 +79,7 @@ import android.widget.Toast;
 public class GoogSMS extends Activity
 {
 	private static final boolean DEBUG = false;
-	
+
 	private static final int MAX_HISTORY_SIZE = 15;
 	private static final int MENU_ABOUT = 0;
 	private static final int MENU_PREFS = 1;
@@ -198,6 +204,58 @@ public class GoogSMS extends Activity
 			}
 		});
 
+		final Drawable imgX = getResources().getDrawable(android.R.drawable.presence_offline);
+
+		manageClearButton(queryFld, imgX);
+
+		queryFld.setOnTouchListener(new OnTouchListener()
+		{
+			@Override
+			public boolean onTouch(View v, MotionEvent event)
+			{
+				// Is there an X showing?
+				if (queryFld.getCompoundDrawables()[2] == null)
+				{
+					return false;
+				}
+
+				// Only do this for up touches
+				if (event.getAction() != MotionEvent.ACTION_UP)
+				{
+					return false;
+				}
+
+				// Is touch on our clear button?
+				if (event.getX() > queryFld.getWidth() - queryFld.getPaddingRight() - imgX.getIntrinsicWidth())
+				{
+					queryFld.requestFocusFromTouch();
+					queryFld.setText("");
+				}
+				return false;
+			}
+		});
+
+		queryFld.addTextChangedListener(new TextWatcher()
+		{
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count)
+			{
+				manageClearButton(queryFld, imgX);
+			}
+
+			@Override
+			public void afterTextChanged(Editable s)
+			{
+
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after)
+			{
+
+			}
+		});
+		
 		sendBtn.setOnClickListener(new Button.OnClickListener()
 		{
 			public void onClick(View view)
@@ -322,9 +380,9 @@ public class GoogSMS extends Activity
 			final LayoutInflater factory = LayoutInflater.from(this);
 			final View aboutView = factory.inflate(R.layout.about, null);
 
-			new AlertDialog.Builder(this).setView(aboutView).setIcon(android.R.drawable.ic_dialog_info).setTitle(
-					getString(R.string.app_name) + ' ' + getVersionNumber()).setPositiveButton(R.string.alert_dialog_ok,
-					new DialogInterface.OnClickListener()
+			new AlertDialog.Builder(this).setView(aboutView).setIcon(android.R.drawable.ic_dialog_info)
+					.setTitle(getString(R.string.app_name) + ' ' + getVersionNumber())
+					.setPositiveButton(R.string.alert_dialog_ok, new DialogInterface.OnClickListener()
 					{
 						public void onClick(DialogInterface dialog, int whichButton)
 						{
@@ -393,5 +451,25 @@ public class GoogSMS extends Activity
 	private void setSmsNumber(String smsNumber)
 	{
 		mSmsNumber = smsNumber;
+	}
+
+	/**
+	 * Manages the clear button.
+	 * 
+	 * @param view The text view.
+	 * @param img The image.
+	 */
+	private void manageClearButton(TextView view, Drawable img)
+	{
+		if (view.getText().toString().equals(""))
+		{
+			view.setCompoundDrawablesWithIntrinsicBounds(view.getCompoundDrawables()[0], view.getCompoundDrawables()[1], null,
+					view.getCompoundDrawables()[3]);
+		}
+		else
+		{
+			view.setCompoundDrawablesWithIntrinsicBounds(view.getCompoundDrawables()[0], view.getCompoundDrawables()[1], img,
+					view.getCompoundDrawables()[3]);
+		}
 	}
 }
